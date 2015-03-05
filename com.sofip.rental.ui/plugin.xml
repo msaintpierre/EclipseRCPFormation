@@ -33,5 +33,19 @@
             name="Rental">
       </perspective>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.sofip.rental.ui.prefs.RentalColorPrefs"
+            id="com.sofip.rental.ui.colorprefpage"
+            name="Colors">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.sofip.rental.ui.prefs.RentalUIPrefInitializer">
+      </initializer>
+   </extension>
 
 </plugin>
