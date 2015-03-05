@@ -35,7 +35,7 @@ public class AgencyLabelProvider extends LabelProvider implements IColorProvider
 		} else if (element instanceof RentalObject) {
 			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
 		} else if (element instanceof AgencyNode) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW);
+			return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_MAGENTA);
 		}
 		return null;
 	}
