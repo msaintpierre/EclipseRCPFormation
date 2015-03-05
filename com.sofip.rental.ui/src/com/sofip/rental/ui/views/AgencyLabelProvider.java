@@ -1,6 +1,9 @@
 package com.sofip.rental.ui.views;
 
+import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
@@ -31,11 +34,11 @@ public class AgencyLabelProvider extends LabelProvider implements IColorProvider
 	@Override
 	public Color getForeground(Object element) {
 		if (element instanceof Customer) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+			return getAColor(RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_COLOR_CUSTOMERS));
 		} else if (element instanceof RentalObject) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+			return getAColor(RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_COLOR_RENTAL));
 		} else if (element instanceof AgencyNode) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_MAGENTA);
+			return getAColor(RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_COLOR_OBJECT));
 		}
 		return null;
 	}
@@ -59,4 +62,14 @@ public class AgencyLabelProvider extends LabelProvider implements IColorProvider
 		return super.getImage(element);
 	}
 
+	private Color getAColor(String rgbkey)
+	{
+		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+		Color col = colorRegistry.get(rgbkey);
+		if (col == null) {
+			colorRegistry.put(rgbkey, StringConverter.asRGB(rgbkey));
+			col = colorRegistry.get(rgbkey);
+		}
+		return col;
+	}
 }
