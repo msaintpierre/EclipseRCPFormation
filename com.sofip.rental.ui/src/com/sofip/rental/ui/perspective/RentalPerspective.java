@@ -12,6 +12,8 @@ public class RentalPerspective implements IPerspectiveFactory {
 
 		layout.addView("com.sofip.rental.ui.rentalAgencyView", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
 		layout.addView("com.sofip.rental.ui.rentalPropertyView", IPageLayout.RIGHT, 0.5f, IPageLayout.ID_EDITOR_AREA);
+		
+		layout.addShowViewShortcut(IPageLayout.ID_OUTLINE);
 	}
 
 }
