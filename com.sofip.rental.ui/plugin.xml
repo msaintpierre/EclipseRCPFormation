@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.sofip.rental.ui.category"
+            name="Rental">
+      </category>
+      <view
+            category="com.sofip.rental.ui.category"
+            class="com.sofip.rental.ui.views.RentalPropertyView"
+            icon="icons/Rentals.png"
+            id="com.sofip.rental.ui.rentalPropertyView"
+            name="Rental Properties"
+            restorable="true">
+      </view>
+      <view
+            category="com.sofip.rental.ui.category"
+            class="com.sofip.rental.ui.views.RentalAgencyView"
+            icon="icons/Agency.png"
+            id="com.sofip.rental.ui.rentalAgencyView"
+            name="Rental Agency"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
