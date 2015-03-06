@@ -5,6 +5,8 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 public class RentalPerspective implements IPerspectiveFactory {
 
+	public static final String ID = "com.sofip.rental.ui.perspective";
+	
 	@Override
 	public void createInitialLayout(IPageLayout layout) {
 		layout.setEditorAreaVisible(false);
