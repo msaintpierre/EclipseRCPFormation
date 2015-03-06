@@ -1,5 +1,8 @@
 package com.sofip.rental.ui;
 
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -31,6 +34,19 @@ public class RentalUIActivator extends AbstractUIPlugin implements RentalUIConst
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		displayViewExtensions();
+	}
+
+	
+	
+	private void displayViewExtensions() {
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		for (IConfigurationElement e : reg.getConfigurationElementsFor("org.eclipse.ui.views"))
+		{
+			if (e.getName().equals("view")) {
+			System.out.println("Vue : " + e.getAttribute("name") + " - Plug-in : " + e.getNamespaceIdentifier());
+			}
+		}
 	}
 
 	/*
